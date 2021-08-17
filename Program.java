@@ -1,55 +1,44 @@
 package application;
 
-import java.util.Locale;
-import java.util.Scanner;
-
-import entities.Triangle;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Program {
 
 	public static void main(String[] args) {
-	
-		Locale.setDefault(Locale.US);
-		Scanner sc = new Scanner (System.in);
-	
-		Triangle x, y;
+		List <String> list = new ArrayList<>();
 		
-		x = new Triangle();
-		y = new Triangle();
+		list.add("maria");
+		list.add("Joao");
+		list.add("marcia");
+		list.add("mari");
+		list.add("mercia");
+		list.add("Jairo");
+		list.add("Jairo");
 		
+		list.add(2, "Marco");
+		list.remove("maria");
 		
-		System.out.println("Enter the measurres of triangle X: ");
-		x.a = sc.nextDouble();
-		x.b = sc.nextDouble();
-		x.c= sc.nextDouble();
+		System.out.println(list.size());
 		
-		System.out.println("Enter the measurres of triangle Y: ");
-		y.a = sc.nextDouble();
-		y.b = sc.nextDouble();
-		y.c = sc.nextDouble();
-		
-		double p = (x.a + x.b + x.c)/2;
-		double areaX = Math.sqrt (p * (p - x.a) * (p - x.b) * (p - x.c));
-		
-		p = (y.a + y.b + y.c)/2;
-		double areaY = Math.sqrt (p * (p - y.a) * (p - y.b) * (p - y.c));
-		
-		System.out.printf("Triangle X area: %.4f%n", areaX);
-		System.out.printf("Triangle Y area: %.4f%n", areaY);
-		
-		if ( areaX > areaY ) {
-			
-			System.out.println("Larger Area: X");
-			
-		}else {
-			System.out.println("Larger Area: Y");
+		for (String x : list) {
+			System.out.println(x);
 			
 		}
 		
-		sc.close();
+		System.out.println("-------------------- removendo apenas com determinada letras ------------");
+		list.remove(1);
+		list.removeIf(x -> x.charAt(0)== 'J');
+		
+		System.out.println("-------------------- fazendo busca de nomes ------------");
+	
+		System.out.println("Index of Jairo: " + list.indexOf("Jairo"));
 		
 		
+		
+		
+		}
 
 	}
 
-}
+
